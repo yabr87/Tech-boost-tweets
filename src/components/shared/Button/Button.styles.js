@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const Btn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 196px;
   font-family: inherit;
   background-color: ${props => props.color};
@@ -10,15 +13,14 @@ export const Btn = styled.button`
   outline: none;
   line-height: 1;
   padding: 16px;
-  transition: all 0.2s ease;
+  transition: ${props => props.theme.transition.hover};
   color: ${props => props.theme.colors.text};
   font-weight: 600;
   font-size: 18px;
   cursor: pointer;
   box-shadow: ${props => props.theme.shadows.btn};
 
-  &:hover,
-  &:focus {
-    opacity: 0.8;
+  &:hover {
+    border-radius: 18px;
   }
 `;
