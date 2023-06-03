@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { Container } from 'components/App/App.styles';
 
-export const TweetContainer = styled(Container)`
+export const UlList = styled.ul`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

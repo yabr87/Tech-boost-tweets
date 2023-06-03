@@ -1,5 +1,15 @@
-//import { Test } from './TweetsPage.styles';
+import { TweetContainer } from './TweetsPage.styles';
+import Button from 'components/shared/Button';
+import UsersList from 'components/UsersList';
 
-const TweetsPage = props => <div className="TweetsPageWrapper">TWEETS</div>;
+const TweetsPage = () => {
+  return (
+    <section>
+      <TweetContainer>
+        <UsersList />
+      </TweetContainer>
+    </section>
+  );
+};
 
 export default TweetsPage;
