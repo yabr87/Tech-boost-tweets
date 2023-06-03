@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-// import PropTypes from 'prop-types';
-
+import { updateUser } from 'services/usersApi';
 import Button from 'components/shared/Button';
+
+import cardLogo from 'images/Logo.svg';
+import cardRing from 'images/ring-min.png';
+import cardDecoration from 'images/picture-min.png';
 
 import {
   CardWrapper,
@@ -9,21 +12,37 @@ import {
   DecorationImg,
   Line,
   Ring,
-  DefaultImg,
   UserImgWrapper,
   UserImg,
   TextWrapper,
   Text,
 } from './Card.styles';
-import cardLogo from 'images/Logo.svg';
-import cardRing from 'images/ring-min.png';
-
-import cardDecoration from 'images/picture-min.png';
 
 const Card = ({ data }) => {
-  const [item, setItem] = useState(data);
-  const { id, name, avatar, follow, followers, tweets } = item;
-  const [item1, setItem1] = useState(follow);
+  const [cardData, setCardData] = useState(data);
+  const { name, avatar, followers, follow, tweets } = cardData;
+  const [isLoading, setIsLoading] = useState(false);
+
+  const updateUerFollow = async () => {
+    try {
+      setIsLoading(true);
+      const updatedCardData = {
+        ...cardData,
+        followers: cardData.follow
+          ? cardData.followers - 1
+          : cardData.followers + 1,
+        follow: !cardData.follow,
+      };
+
+      await updateUser(updatedCardData);
+
+      setCardData(updatedCardData);
+    } catch (error) {
+      alert(`Щось пішло не так. Спробуй ще раз!`);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <CardWrapper>
@@ -40,22 +59,15 @@ const Card = ({ data }) => {
           <Text>{tweets?.toLocaleString('en')} Tweets</Text>
           <Text>{followers?.toLocaleString('en')} Followers</Text>
           <Button
-            color={!item1 ? '#EBD8FF' : '#5CD3A8'}
-            text="Follow"
-            onClick={() => setItem1(!item1)}
+            color={!follow ? '#EBD8FF' : '#5CD3A8'}
+            text={!follow ? 'Follow' : 'Following'}
+            loading={isLoading}
+            onClick={updateUerFollow}
           />
         </TextWrapper>
       </CardContent>
     </CardWrapper>
   );
 };
-
-// Card.propTypes = {
-//   // bla: PropTypes.string,
-// };
-
-// Card.defaultProps = {
-//   // bla: 'test',
-// };
 
 export default Card;
