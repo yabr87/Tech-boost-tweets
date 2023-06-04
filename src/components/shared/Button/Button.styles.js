@@ -5,6 +5,7 @@ export const Btn = styled.button`
   align-items: center;
   justify-content: center;
   width: 196px;
+  height: 50px;
   font-family: inherit;
   background-color: ${props => props.color};
   text-transform: uppercase;

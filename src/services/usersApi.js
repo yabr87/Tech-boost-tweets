@@ -4,22 +4,20 @@ const instance = axios.create({
   baseURL: 'https://63fe6905c5c800a723807f95.mockapi.io',
 });
 
-// export const getUsers = async (page = 1) => {
-//   try {
-//     const { data } = await instance.get(`/users?page=${page}&limit=3`);
-//     const { data2 } = await instance.get(`/users?page=${page + 1}&limit=3`);
-//     return [data, data2];
-//   } catch (error) {
-//     throw error;
-//   }
-// };
-
-export const getUsers = async (page = 1) => {
-  console.log('====>', page);
+export const getUsers = async params => {
+  const { page = '1', follow } = params;
   try {
+    const config = {
+      params: {},
+    };
+
+    if (follow === 'true' || follow === 'false') {
+      config.params.follow = follow;
+    }
+
     const [response1, response2] = await Promise.all([
-      instance.get(`/users?page=${page}&limit=3&follow=true`),
-      instance.get(`/users?page=${page + 1}&limit=3&follow=true`),
+      instance.get(`/users?page=${+page}&limit=3`, config),
+      instance.get(`/users?page=${+page + 1}&limit=3`, config),
     ]);
 
     const data = response1.data;
