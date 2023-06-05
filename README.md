@@ -1,6 +1,6 @@
 
 ## Tech-boost-tweets
-### Тестове завдання від GoIT https://yabr87.github.io/Tech-boost-tweets/  
+### Тестове завдання від GoIT https://yabr87.github.io/Tech-boost-tweets/
 - посилання на технічне завдання посилання [Google Drive](https://drive.google.com/file/d/1XQnUiuhy6zndS8wN9ZonHZV6Iu0esiA1/view)  
 - посилання на макет посилання [Figma](https://www.figma.com/file/zun1oP6NmS2Lmgbcj6e1IG/Test?node-id=0%3A1&t=VoiYTfiXggVItgVd-1)
 
