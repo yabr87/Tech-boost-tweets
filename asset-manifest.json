@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/tweets-tech-boost/static/css/main.31d6cfe0.css",
+    "main.js": "/tweets-tech-boost/static/js/main.28a67a56.js",
+    "static/js/875.c7a33500.chunk.js": "/tweets-tech-boost/static/js/875.c7a33500.chunk.js",
+    "static/js/343.102309b5.chunk.js": "/tweets-tech-boost/static/js/343.102309b5.chunk.js",
+    "static/js/750.5b9a5d2a.chunk.js": "/tweets-tech-boost/static/js/750.5b9a5d2a.chunk.js",
+    "static/js/243.0c332e36.chunk.js": "/tweets-tech-boost/static/js/243.0c332e36.chunk.js",
+    "static/js/863.1d1ad231.chunk.js": "/tweets-tech-boost/static/js/863.1d1ad231.chunk.js",
+    "static/media/picture-min.png": "/tweets-tech-boost/static/media/picture-min.b7c5f97e9f70da4ebce0.png",
+    "static/media/404-min.png": "/tweets-tech-boost/static/media/404-min.b01029a9206b7690205f.png",
+    "static/media/boy-min.png": "/tweets-tech-boost/static/media/boy-min.f217bf367ee5cb3b9467.png",
+    "static/media/ring-min.png": "/tweets-tech-boost/static/media/ring-min.14b579680d6d562f59f9.png",
+    "static/media/Logo.svg": "/tweets-tech-boost/static/media/Logo.e917114d7945c04c85a8946a331d28b6.svg",
+    "index.html": "/tweets-tech-boost/index.html",
+    "main.28a67a56.js.map": "/tweets-tech-boost/static/js/main.28a67a56.js.map",
+    "875.c7a33500.chunk.js.map": "/tweets-tech-boost/static/js/875.c7a33500.chunk.js.map",
+    "343.102309b5.chunk.js.map": "/tweets-tech-boost/static/js/343.102309b5.chunk.js.map",
+    "750.5b9a5d2a.chunk.js.map": "/tweets-tech-boost/static/js/750.5b9a5d2a.chunk.js.map",
+    "243.0c332e36.chunk.js.map": "/tweets-tech-boost/static/js/243.0c332e36.chunk.js.map",
+    "863.1d1ad231.chunk.js.map": "/tweets-tech-boost/static/js/863.1d1ad231.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.28a67a56.js"
+  ]
+}
