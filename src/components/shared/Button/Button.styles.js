@@ -23,5 +23,6 @@ export const Btn = styled.button`
 
   &:hover {
     border-radius: 18px;
+    background-color: ${props => props.theme.colors.active};
   }
 `;

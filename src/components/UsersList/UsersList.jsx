@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 import { UlList, ListWrapper } from './UsersList.styles';
 import Card from 'components/Card';
 import Button from 'components/shared/Button';
-import Filter from 'components/Filter';
+import FilterBar from 'components/FilterBar';
 
 const UsersList = () => {
   const [data, setData] = useState([]);
@@ -24,7 +24,7 @@ const UsersList = () => {
       setData(prevData => [...prevData, ...result[0]]);
       setShowButton(result[1]?.length);
     } catch (error) {
-      alert(`Щось пішло не так. Спробуй ще раз!`);
+      alert(`Something went wrong. Try again!`);
     } finally {
       setIsLoading(false);
     }
@@ -32,15 +32,12 @@ const UsersList = () => {
 
   useEffect(() => {
     const params = Object.fromEntries(searchParams.entries());
-    console.log(params);
-
+    if (!params.follow) {
+      setSearchParams({ page: 1, follow: 'all' });
+    }
     fetchData(params);
-  }, [searchParams]);
-
-  useEffect(() => {
-    setSearchParams({ page: 1, follow: 'all' });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [searchParams]);
 
   const handleClick = () => {
     const { page, follow } = Object.fromEntries(searchParams.entries());
@@ -49,8 +46,7 @@ const UsersList = () => {
 
   return (
     <ListWrapper>
-      <Filter />
-
+      <FilterBar />
       <UlList>
         {data.map(item => (
           <Card key={item.id} data={item} />

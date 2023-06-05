@@ -14,6 +14,7 @@ export const NavItem = styled(NavLink)`
   line-height: 24px;
   text-transform: uppercase;
   color: ${props => props.theme.colors.main};
+  transition: ${props => props.theme.transition.hover};
 
   &:hover,
   &:focus {
