@@ -12,7 +12,7 @@ import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
-  <BrowserRouter basename="Tech-boost-tweets">
+  <BrowserRouter basename="tech-boost-tweets">
     <ThemeProvider theme={theme}>
       <App />
     </ThemeProvider>
