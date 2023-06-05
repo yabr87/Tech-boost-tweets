@@ -31,7 +31,7 @@ export const getUsers = async params => {
 
 export const updateUser = async data => {
   const { id, followers, follow } = data;
-  console.log(data);
+
   try {
     const { data: result } = await instance.put(`/users/${id}`, {
       followers,
