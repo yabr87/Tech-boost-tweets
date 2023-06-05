@@ -19,8 +19,8 @@ const UsersList = () => {
       const result = await getUsers(params);
       if (params.page === '1') {
         setData([]);
-      } else {
       }
+
       setData(prevData => [...prevData, ...result[0]]);
       setShowButton(result[1]?.length);
     } catch (error) {
