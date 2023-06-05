@@ -1,70 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { FilterWrapper, InputLabel, FilterInput } from './Filter.styles';
 
-const Filter = () => {
+const Filter = ({ setIsNotOpen }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const options = [
+    { value: 'all', label: 'All' },
+    { value: 'true', label: 'Following' },
+    { value: 'false', label: 'Unfollowing' },
+  ];
 
   const followValue = searchParams.get('follow');
 
   useEffect(() => {
     if (!followValue) {
-      setSelectedOption('option1');
-      setSearchParams({ page: 1, follow: 'all' });
-    } else if (followValue === 'all') {
-      setSelectedOption('option1');
-    } else if (followValue === 'true') {
-      setSelectedOption('option2');
-    } else if (followValue === 'false') {
-      setSelectedOption('option3');
+      setSelectedOption('all');
+    } else {
+      setSelectedOption(followValue);
     }
   }, [followValue, setSearchParams]);
 
+  
   const handleOptionChange = event => {
     const value = event.target.value;
     setSelectedOption(value);
 
-    if (value === 'option1') {
+    if (value === 'all') {
       setSearchParams({ page: 1, follow: 'all' });
-    } else if (value === 'option2') {
-      setSearchParams({ page: 1, follow: true });
-    } else if (value === 'option3') {
-      setSearchParams({ page: 1, follow: false });
+    } else {
+      setSearchParams({ page: 1, follow: value });
     }
+    setIsNotOpen(true);
   };
 
   return (
-    <div>
-      <label>
-        <input
-          type="radio"
-          value="option1"
-          checked={selectedOption === 'option1'}
-          onChange={handleOptionChange}
-        />
-        Option 1
-      </label>
-      <br />
-      <label>
-        <input
-          type="radio"
-          value="option2"
-          checked={selectedOption === 'option2'}
-          onChange={handleOptionChange}
-        />
-        Option 2
-      </label>
-      <br />
-      <label>
-        <input
-          type="radio"
-          value="option3"
-          checked={selectedOption === 'option3'}
-          onChange={handleOptionChange}
-        />
-        Option 3
-      </label>
-    </div>
+    <FilterWrapper>
+      {options.map(option => (
+        <InputLabel key={option.value}>
+          <FilterInput
+            type="radio"
+            value={option.value}
+            checked={selectedOption === option.value}
+            onChange={handleOptionChange}
+          />
+          {option.label}
+        </InputLabel>
+      ))}
+    </FilterWrapper>
   );
 };
 

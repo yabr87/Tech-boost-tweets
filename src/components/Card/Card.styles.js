@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const CardWrapper = styled.li`
   position: relative;
-  width: 361px;
+  max-width: 361px;
+  width: 100%;
   height: 460px;
   border-radius: 20px;
   background: ${props => props.theme.gradient.bg};

@@ -38,7 +38,7 @@ const Card = ({ data }) => {
 
       setCardData(updatedCardData);
     } catch (error) {
-      alert(`Щось пішло не так. Спробуй ще раз!`);
+      alert(`Something went wrong. Try again!`);
     } finally {
       setIsLoading(false);
     }
